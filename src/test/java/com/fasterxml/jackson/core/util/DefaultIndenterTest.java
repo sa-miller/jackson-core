@@ -60,5 +60,5 @@ class DefaultIndenterTest {
     
     // on vérifie que rien n'a été écrit, donc si il y a un "\n"
     assertEquals("\n", writer.toString());
- }
+}
 }
