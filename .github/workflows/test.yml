@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         flag:
-          - "-Xmx512m"
+          - "-Xmx256m"
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 17
