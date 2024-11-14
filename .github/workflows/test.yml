@@ -18,13 +18,13 @@ jobs:
 
       - name: Run Maven tests with custom JVM flags
         env:
-          MAVEN_OPTS: "-Xmx512m -Xms256m -XX:+UseG1GC -XX:+PrintGCDetails -XX:+HeapDumpOnOutOfMemoryError"
+          MAVEN_OPTS: "-Xmx512m -Xms256m -XX:+UseG1GC -Xlog:gc* -XX:+HeapDumpOnOutOfMemoryError"
         run: |
           echo "Starting Maven tests with the following JVM flags:"
           echo "-Xmx512m: Sets maximum heap size to 512 MB"
           echo "-Xms256m: Sets initial heap size to 256 MB"
           echo "-XX:+UseG1GC: Uses the G1 Garbage Collector for optimized memory management"
-          echo "-XX:+PrintGCDetails: Prints detailed garbage collection logs to the console"
+          echo "-Xlog:gc*: Enables detailed garbage collection logging"
           echo "-XX:+HeapDumpOnOutOfMemoryError: Creates a heap dump if an OutOfMemoryError occurs"
           
           mvn verify
