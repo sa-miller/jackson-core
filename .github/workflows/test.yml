@@ -11,7 +11,7 @@ jobs:
       matrix:
         flag:
           - "-Xmx256m" # Visiblement, limiter la mémoire maximale à 256m rend la compilation un peu plus longue, mais toujours possible
-          - "-XX:+PrintTenuringDistribution" # Affiche la distribution des objets vivants (instanciés) dans le tas
+          - "-Xlog:gc*,gc+age=trace" # Affiche la distribution des objets vivants (instanciés) dans le tas (anciennement "-XX:+PrintTenuringDistribution")
           - "-XX:+AggressiveOpts" # Active des options d'optimisation agressives, expérimentales
           - "-enableassertions" # Active les assertions (elles sont rendues plus strictes)
           - "-XX:+UseStringDeduplication" # Active la déduplication des chaînes de caractèresg
