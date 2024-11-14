@@ -10,7 +10,11 @@ jobs:
     strategy:
       matrix:
         flag:
-          - "-Xmx256m"
+          - "-Xmx256m" # Visiblement, limiter la mémoire maximale à 256m rend la compilation un peu plus longue, mais toujours possible
+          - "-XX:+PrintTenuringDistribution" # Affiche la distribution des objets vivants (instanciés) dans le tas
+          - "-XX:+AggressiveOpts" # Active des options d'optimisation agressives, expérimentales
+          - "-enableassertions" # Active les assertions (elles sont rendues plus strictes)
+          - "-XX:+UseStringDeduplication" # Active la déduplication des chaînes de caractèresg
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 17
