@@ -11,10 +11,6 @@ jobs:
       matrix:
         flag:
           - "-Xmx512m"
-          - "-XX:+UseG1GC"
-          - "-XX:+HeapDumpOnOutOfMemoryError"
-          - "-XX:+PrintCompilation"
-          - "-Djava.security.egd=file:/dev/./urandom"
     steps:
       - uses: actions/checkout@v4
       - name: Set up JDK 17
